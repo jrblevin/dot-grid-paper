@@ -18,7 +18,7 @@ Several variations are included:
 ## Package Contents
 
 *   `dot-grid.sty` - A LaTeX package which defines colors, margins, and a dot grid macro using Tikz.
-*   `dot-grid.py`: - A Python script which generates the TeX files.
+*   `dot-grid.py` - A Python script which generates the TeX files.
 
 ## Usage
 
