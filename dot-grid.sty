@@ -1,0 +1,70 @@
+% dot-grid.sty
+\ProvidesPackage{dot-grid}[2017/08/11 Dot Grid Paper]
+
+% Load packages
+\RequirePackage{geometry}
+\RequirePackage{tikz}
+\RequirePackage{xcolor}
+
+%% Global landscape option
+\newif\if@dotlandscape\@dotlandscapefalse
+\DeclareOption{landscape}{\@dotlandscapetrue}
+
+%% 'dotmargin' option
+\newif\if@dotmargin\@dotmarginfalse
+\DeclareOption{dotmargin}{\@dotmargintrue}
+
+%% 'dotfull' option
+\DeclareOption{dotfull}{\@dotmarginfalse}
+
+\ProcessOptions\relax
+
+% Set fixed margins
+\geometry{right=0in, bottom=0in, left=0.24in, nohead, nofoot}
+
+% Calculate margins and number of dots based on options and orientation
+\if@dotlandscape
+\if@dotmargin
+% landscape with margin
+\geometry{top=0.74in}
+\def\@dotnumx{43}
+\def\@dotnumy{31}
+\else
+% landscape without margin
+\geometry{top=0.24in}
+\def\@dotnumx{43}
+\def\@dotnumy{33}
+\fi
+\else
+\if@dotmargin
+% portrait with margin
+\geometry{top=0.74in}
+\def\@dotnumx{33}
+\def\@dotnumy{41}
+\else
+% portrait without margin
+\geometry{top=0.24in}
+\def\@dotnumx{33}
+\def\@dotnumy{43}
+\fi
+\fi
+
+% Avoid initial horizontal space
+\setlength\parindent{0pt}
+
+% No page numbers
+\pagestyle{empty}
+
+% Colors
+\definecolor{white}{RGB}{255,255,255}
+\definecolor{antique}{RGB}{255,255,244}
+\definecolor{dotcolor}{RGB}{204,204,198}
+
+% Define dot grid macro
+\newcommand{\dotgrid}{\begin{tikzpicture}[x=0.25in, y=0.25in]
+    \foreach \x in {1, ..., \@dotnumx}{
+      \foreach \y in {1, ..., \@dotnumy}{
+        \fill[dotcolor] (\x,\y) circle[radius=0.01in];
+      }
+    }
+  \end{tikzpicture}}
