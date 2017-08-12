@@ -23,8 +23,9 @@ Several variations are included:
 ## Usage
 
 1.   Run `dot-grid.py` to produce the `.tex` files.
-2.   Run `pdflatex` on each `.tex` file as desired.
-3.   Use the resulting PDF files.
+2.   Run `pdflatex` on each `.tex` file as needed.  For example:
+
+         for file in *.tex; do pdflatex $file; done;
 
 Or, simply use the included output files in the `pdf` directory.
 
