@@ -10,6 +10,10 @@
 \newif\if@dotlandscape\@dotlandscapefalse
 \DeclareOption{landscape}{\@dotlandscapetrue}
 
+%% Global DIN A4 option
+\newif\if@dotdin\@dotdinfalse
+\DeclareOption{a4paper}{\@dotdintrue}
+
 %% 'dotmargin' option
 \newif\if@dotmargin\@dotmarginfalse
 \DeclareOption{dotmargin}{\@dotmargintrue}
@@ -36,6 +40,19 @@
 \def\@dotnumy{33}
 \fi
 \else
+\if@dotdin
+\if@dotmargin
+% A4 with margin
+\geometry{top=0.74in}
+\def\@dotnumx{32}
+\def\@dotnumy{43}
+\else
+% A4 without margin
+\geometry{top=0.24in}
+\def\@dotnumx{32}
+\def\@dotnumy{46}
+\fi
+\else
 \if@dotmargin
 % portrait with margin
 \geometry{top=0.74in}
@@ -46,6 +63,7 @@
 \geometry{top=0.24in}
 \def\@dotnumx{33}
 \def\@dotnumy{43}
+\fi
 \fi
 \fi
 
