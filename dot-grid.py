@@ -1,13 +1,13 @@
 #!/usr/bin/python
 
-orientations = [ 'portrait', 'landscape' ]
+orientations = [ 'portrait', 'landscape', 'a4paper' ]
 colors = [ 'white', 'antique' ]
 styles = [ 'full', 'margin' ]
 
 for orientation in orientations:
     for color in colors:
         for style in styles:
-            fn = 'dot-grid-%s-%s-%s.tex' % (orientation, color, style)
+            fn = 'tex/dot-grid-%s-%s-%s.tex' % (orientation, color, style)
             print "Generating %s..." % fn
             f = open(fn, 'w+')
             f.write("\\documentclass[%s]{article}\n" % orientation)
