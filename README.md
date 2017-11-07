@@ -22,10 +22,12 @@ Several variations are included:
 
 ## Usage
 
-1.   Run `dot-grid.py` to produce the `.tex` files.
+1.   Run `dot-grid.py` to produce the `.tex` files directly into the tex directory.
 2.   Run `pdflatex` on each `.tex` file as needed.  For example:
 
-         for file in *.tex; do pdflatex $file; done;
+         for file in tex/*.tex; do pdflatex $file; done;
+
+     This will create the pdfs in the root directory.
 
 Or, simply use the included output files in the `pdf` directory.
 
