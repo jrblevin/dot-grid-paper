@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-orientations = [ 'portrait', 'landscape', 'a4paper' ]
+orientations = [ 'portrait', 'landscape', 'a4paper', 'a6paper' ]
 colors = [ 'white', 'antique' ]
 styles = [ 'full', 'margin' ]
 
